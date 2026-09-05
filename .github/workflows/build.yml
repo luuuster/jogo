@@ -1,50 +1,56 @@
-name: Gerar executáveis
-
-on:
-  workflow_dispatch:
-  push:
-    tags:
-      - "v*"
-
-permissions:
-  contents: read
-
-jobs:
-  export:
-    name: Exportar Windows, Linux e Web
-    runs-on: ubuntu-latest
-    steps:
-      - name: Baixar o projeto
-        uses: actions/checkout@v4
-
-      - name: Instalar Godot e templates de exportação
-        uses: chickensoft-games/setup-godot@v2
-        with:
-          version: 4.3.0
-          use-dotnet: false
-          include-templates: true
-
-      - name: Validar o projeto e executar testes
-        run: |
-          node tests/web_smoke_test.js
-          godot --headless --path . --import --quit
-          godot --headless --path . --script tests/test_rules.gd
-
-      - name: Gerar distribuições
-        run: ./scripts/build_exports.sh
-
-      - name: Empacotar Windows
-        run: cd build/windows && zip -9 ../Cronicas-de-Lumen-Windows.zip ./*
-
-      - name: Empacotar Linux
-        run: cd build/linux && tar -czf ../Cronicas-de-Lumen-Linux.tar.gz ./*
-
-      - name: Publicar artefatos
-        uses: actions/upload-artifact@v4
-        with:
-          name: Cronicas-de-Lumen
-          path: |
-            build/Cronicas-de-Lumen-Windows.zip
-            build/Cronicas-de-Lumen-Linux.tar.gz
-            build/web/
-          if-no-files-found: error
+diff --git a/.github/workflows/build.yml b/.github/workflows/build.yml
+new file mode 100644
+index 0000000000000000000000000000000000000000..c4a1aada794a1c71a06de19b34886a001046726d
+--- /dev/null
++++ b/.github/workflows/build.yml
+@@ -0,0 +1,50 @@
++name: Gerar executáveis
++
++on:
++  workflow_dispatch:
++  push:
++    tags:
++      - "v*"
++
++permissions:
++  contents: read
++
++jobs:
++  export:
++    name: Exportar Windows, Linux e Web
++    runs-on: ubuntu-latest
++    steps:
++      - name: Baixar o projeto
++        uses: actions/checkout@v4
++
++      - name: Instalar Godot e templates de exportação
++        uses: chickensoft-games/setup-godot@v2
++        with:
++          version: 4.3.0
++          use-dotnet: false
++          include-templates: true
++
++      - name: Validar o projeto e executar testes
++        run: |
++          node tests/web_smoke_test.js
++          godot --headless --path . --import --quit
++          godot --headless --path . --script tests/test_rules.gd
++
++      - name: Gerar distribuições
++        run: ./scripts/build_exports.sh
++
++      - name: Empacotar Windows
++        run: cd build/windows && zip -9 ../Cronicas-de-Lumen-Windows.zip ./*
++
++      - name: Empacotar Linux
++        run: cd build/linux && tar -czf ../Cronicas-de-Lumen-Linux.tar.gz ./*
++
++      - name: Publicar artefatos
++        uses: actions/upload-artifact@v4
++        with:
++          name: Cronicas-de-Lumen
++          path: |
++            build/Cronicas-de-Lumen-Windows.zip
++            build/Cronicas-de-Lumen-Linux.tar.gz
++            build/web/
++          if-no-files-found: error
