@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Crônicas de Lúmen</title>
+  <style>
+    *{box-sizing:border-box}body{margin:0;min-height:100vh;background:#07101d;color:#f4f7fb;font:16px system-ui,sans-serif;display:grid;place-items:center}.game{width:min(1100px,100%);padding:20px}.top{display:flex;justify-content:space-between;align-items:end;margin-bottom:14px}h1{margin:0;color:#f5d76e;font-size:clamp(23px,4vw,38px)}.sub{color:#9fb3c8}.layout{display:grid;grid-template-columns:minmax(320px,620px) minmax(270px,1fr);gap:18px}.board{display:grid;grid-template-columns:repeat(10,1fr);aspect-ratio:1;border:2px solid #38506b;background:#14263a}.tile{position:relative;border:1px solid #0d1c2d;background:#20364b;cursor:pointer;min-width:0}.tile:nth-child(odd){background:#263f55}.tile.moss{background:#41685a}.tile.rock{background:#596273;cursor:not-allowed}.tile.rock:after{content:'◆';position:absolute;inset:0;display:grid;place-items:center;color:#aab4c2;font-size:24px}.tile.move{background:#277a9b;box-shadow:inset 0 0 0 2px #5ed7ff}.tile.target{background:#8c3f52;box-shadow:inset 0 0 0 2px #ff8ca2}.unit{position:absolute;inset:16%;border-radius:50%;display:grid;place-items:center;font-weight:800;font-size:clamp(9px,1.5vw,14px);box-shadow:0 3px 8px #0008}.ally{background:#34bfa8;border:3px solid #86ffe8}.enemy{background:#cf5360;border:3px solid #ff9ca5}.active{outline:4px solid #f5d76e;outline-offset:2px}.hp{position:absolute;left:8%;right:8%;bottom:4%;height:5px;background:#491f2f}.hp i{display:block;height:100%;background:#6ee7a0}.panel{background:#101c2d;border:2px solid #38506b;border-radius:8px;padding:22px;display:flex;flex-direction:column;gap:14px}.panel h2{margin:0;color:#f5d76e}.card{background:#17283c;padding:14px;border-radius:6px}.stats{line-height:1.7}.actions{display:flex;gap:8px;flex-wrap:wrap}button{border:1px solid #8da6bf;background:#355c7d;color:white;padding:12px 16px;border-radius:5px;font-weight:700;cursor:pointer}button:hover{filter:brightness(1.2)}button:disabled{opacity:.35;cursor:not-allowed}.skill{background:#644b76}.wait{background:#555f70}.message{min-height:72px}.help{font-size:13px;color:#9fb3c8}.overlay{position:fixed;inset:0;background:#030812e8;display:grid;place-items:center;text-align:center;padding:20px}.overlay section{max-width:620px}.overlay h2{font-size:48px;color:#f5d76e;margin:0 0 10px}.overlay p{font-size:19px;line-height:1.5}.hidden{display:none}@media(max-width:760px){.layout{grid-template-columns:1fr}.game{padding:10px}.panel{padding:14px}.top .sub{display:none}}
+  </style>
+</head>
+<body>
+<noscript><div class="overlay"><section><h2>JavaScript desativado</h2><p>Ative o JavaScript no navegador para jogar.</p></section></div></noscript>
+<main class="game">
+  <header class="top"><div><h1>CRÔNICAS DE LÚMEN</h1><div class="sub">Defenda o farol ancestral</div></div><button type="button" id="restart">Reiniciar</button></header>
+  <div class="layout"><div id="board" class="board" aria-label="Tabuleiro 10 por 10"></div><aside class="panel"><h2>FAROL DE LÚMEN</h2><div id="active" class="card stats"></div><div class="actions"><button type="button" id="attack">ATAQUE</button><button type="button" id="skill" class="skill">HABILIDADE</button><button type="button" id="wait" class="wait">ESPERAR</button><button type="button" id="cancel" class="wait">CANCELAR</button></div><div id="message" class="card message"></div><div><strong>Ordem de turnos</strong><div id="order" class="stats"></div></div><div class="help">Azul: movimento • Vermelho: alvo<br>Clique para mover e depois escolha uma ação.</div></aside></div>
+</main>
+<div id="intro" class="overlay"><section><h2>CRÔNICAS DE LÚMEN</h2><p>Kael e Iria são a última defesa do vale. Derrote os três invasores antes que a luz se apague.</p><button type="button" id="start">INICIAR BATALHA</button></section></div>
+<div id="result" class="overlay hidden"><section><h2 id="resultTitle"></h2><p id="resultText"></p><button type="button" id="again">JOGAR NOVAMENTE</button></section></div>
+<script src="jogo.js" defer></script>
+</body>
+</html>

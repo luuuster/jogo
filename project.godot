@@ -1,0 +1,18 @@
+[application]
+config/name="Crônicas de Lúmen"
+run/main_scene="res://scenes/main.tscn"
+
+[display]
+window/size/viewport_width=1100
+window/size/viewport_height=720
+window/size/window_width_override=1100
+window/size/window_height_override=720
+window/stretch/mode="canvas_items"
+
+[rendering]
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
+environment/defaults/default_clear_color=Color(0.025, 0.035, 0.065, 1)
+
+[input]
+cancel_action={"deadzone":0.5,"events":[Object(InputEventKey,"physical_keycode":4194305)]}
