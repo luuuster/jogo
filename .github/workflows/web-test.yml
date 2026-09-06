@@ -1,0 +1,23 @@
+name: Testar jogo Web
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "JOGAR.html"
+      - "jogo.js"
+      - "tests/web_smoke_test.js"
+      - ".github/workflows/web-test.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  smoke-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validar JavaScript
+        run: node --check jogo.js
+      - name: Testar batalha no navegador simulado
+        run: node tests/web_smoke_test.js
