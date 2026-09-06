@@ -1,0 +1,8 @@
+{
+  "warden": {"id":"warden","name":"Kael","archetype":"guerreiro","hp":34,"mp":6,"attack":10,"defense":5,"speed":7,"movement":4,"range":1,"skill":{"name":"Golpe Solar","power":5,"range":1,"mp_cost":3}},
+  "ranger": {"id":"ranger","name":"Iria","archetype":"arqueiro","hp":25,"mp":8,"attack":9,"defense":3,"speed":9,"movement":5,"range":3,"skill":{"name":"Flecha Prismática","power":4,"range":4,"mp_cost":3}},
+  "mage": {"id":"mage","name":"Lyra","archetype":"mago","hp":21,"mp":14,"attack":11,"defense":2,"speed":8,"movement":4,"range":3,"skill":{"name":"Explosão Astral","power":6,"range":3,"mp_cost":5}},
+  "healer": {"id":"healer","name":"Nilo","archetype":"curandeiro","hp":24,"mp":16,"attack":6,"defense":3,"speed":7,"movement":4,"range":2,"skill":{"name":"Luz Restauradora","power":10,"range":3,"mp_cost":4,"effect":"heal"}},
+  "raider": {"id":"raider","name":"Saqueador","archetype":"guerreiro","hp":22,"mp":4,"attack":8,"defense":3,"speed":6,"movement":4,"range":1,"skill":{"name":"Investida","power":3,"range":1,"mp_cost":2}},
+  "seer": {"id":"seer","name":"Oráculo Sombrio","archetype":"mago","hp":18,"mp":10,"attack":10,"defense":2,"speed":5,"movement":3,"range":3,"skill":{"name":"Pulso Umbral","power":5,"range":3,"mp_cost":4}}
+}
